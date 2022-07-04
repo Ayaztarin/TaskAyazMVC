@@ -1,0 +1,30 @@
+﻿@model TaskAyazMVC.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<style>
+    .error {
+        color: #ff6a00
+    }
+</style>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class=" mb-3">
+        <h1>@TempData["Email"]</h1>
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Placeholder = "Enter your Email", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <h1>@TempData["Password"]</h1>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @Placeholder = "Enter your Password", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+    </div>
+    <button type="submit" class=" btn btn-danger">Login</button>
+    <td><a href=" @Url.Action("SignUp","Home")" class="btn btn-danger">SignUp</a></td>
+
+}
+

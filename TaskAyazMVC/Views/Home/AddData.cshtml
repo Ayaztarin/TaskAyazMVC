@@ -1,0 +1,41 @@
+﻿@model TaskAyazMVC.Models.EmpModel
+@{
+    ViewBag.Title = "AddData";
+}
+
+<h2>Employee Data</h2>
+<style>
+    .error {
+        color: #ff0000
+    }
+</style>
+@using (Html.BeginForm("AddData", "Home", FormMethod.Post))
+{
+    <div class=" mb-3">
+        <label class=" form-group"></label>
+        @Html.TextBoxFor(m => m.Id, new { @Type = "hidden" })
+    </div>
+    <div class=" mb-3">
+        <label class=" form-group">Subject</label>
+        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @Placeholder = "Subject", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <label class=" form-group">Book Name</label>
+        @Html.TextBoxFor(m => m.Book_Name, new { @class = "form-control", @Placeholder = "Book_Name", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Book_Name, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <label class=" form-group">Publication</label>
+        @Html.TextBoxFor(m => m.Publication, new { @class = "form-control", @Placeholder = "Publication", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Publication, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <label class=" form-group">Author</label>
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", @Placeholder = "Author", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Author, "", new { @class = "error" })
+    </div>
+    <button type="Submit" class=" btn btn-primary">Submit</button>
+    <button type="reset" class=" btn btn-danger">Reset</button>
+
+}

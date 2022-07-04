@@ -1,0 +1,40 @@
+﻿@model TaskAyazMVC.AZ.Publisher
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>SignUp</h2>
+@using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+
+{
+    <div class=" mb-3">
+        <label>First Name</label>
+        @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control", @Placeholder = "Enter First Name", @required = "required" })
+        @Html.ValidationMessageFor(m => m.First_Name, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <label>Last Name</label>
+        @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control", @Placeholder = "Enter Last Name", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Last_Name, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <label>Organization Name</label>
+        @Html.TextBoxFor(m => m.Organization_Name, new { @class = "form-control", @Placeholder = "Enter Organization", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Organization_Name, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <h1>@TempData["Email"]</h1>
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Placeholder = "Enter your Email", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+    <div class=" mb-3">
+        <h1>@TempData["Password"]</h1>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @Placeholder = "Enter your Password", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+    </div>
+    <button type="submit" class=" btn btn-danger">SignUp</button>
+}
+
+
